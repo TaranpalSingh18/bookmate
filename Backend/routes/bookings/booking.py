@@ -7,6 +7,6 @@ from sqlalchemy.orm import Session
 
 event = APIRouter(tags=['events'], prefix="/event")
 
-@event.get('/')
-async def get_event_details(db: Session = Depends(get_db)):
+@event.post('/')
+async def post_event_details(db: Session = Depends(get_db)):
     
