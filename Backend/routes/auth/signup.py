@@ -19,7 +19,6 @@ ALGORITHM = "HS256"
 
 
 
-
 def create_access_token(data: dict, expires_delta: timedelta | None = None):
     token_data = data.copy()
     expire = datetime.now(timezone.utc) + (expires_delta or timedelta(days=1))
@@ -54,12 +53,12 @@ async def get_user(payload: UserSignup, db: Session = Depends(get_db)) -> dict:
 async def login_user(db: Session = Depends(get_db),  form_data: OAuth2PasswordRequestForm = Depends())->dict:
     """ This is the login route"""
 
-    existing_user = db.query(UserTable).filter(UserTable.email == form_data.email).first()
+    existing_user = db.query(UserTable).filter(UserTable.email == form_data.username).first()
 
     if not existing_user:
         raise HTTPException(status_code=404, detail="User not found, Please signup")
     
-    if not pwd_context.verify(form_data.passowrd, existing_user.password):
+    if not pwd_context.verify(form_data.password, existing_user.password):
         raise HTTPException(status_code = 400, detail="Invalid Credentials")
     
     access_token = create_access_token({"sub": existing_user.email})
@@ -70,7 +69,11 @@ async def login_user(db: Session = Depends(get_db),  form_data: OAuth2PasswordRe
         "token_type":"bearer"
     }
 
-    
+@auth.post('/logout')
+async def user_logout():
+    """ This is the logout route"""
+    return {"system_message":"Profile has been logged out. Please delete the access token from the client"}
+
 
     
     
