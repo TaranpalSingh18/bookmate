@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from database import get_db
 from fastapi import Depends
 from sqlalchemy.orm import Session
@@ -28,3 +28,21 @@ async def post_event_details(payload:Events, db: Session = Depends(get_db)):
             "event_metadata": new_event}
 
 
+@event.get('/all')
+async def get_all_events(db: Session = Depends(get_db)):
+    """ The objective oof this route is get all the vevents that are listed"""
+    event_list = db.query(EventsTable).all()
+    if event_list is None:
+        raise HTTPException(detail="No event listed till now", status=404)
+    
+    return event_list
+
+@event.get('/{event_id}')
+async def get_specific_event_detail(event_id: str, db: Session = Depends(get_db)):
+
+    existing_event = db.query(EventsTable).filter(EventsTable.event_id == event_id).first()
+
+    if not existing_event:
+        raise HTTPException(detail="This event does not exists", status_code = 404)
+    
+    return existing_event
