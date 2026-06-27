@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, model_validator
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 class Events(BaseModel):
     event_name: str = Field(max_length=1000)
@@ -20,7 +20,6 @@ class Events(BaseModel):
 
         return self
     
-       
 
 # Event Name
 # Description

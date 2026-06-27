@@ -18,6 +18,7 @@ async def post_event_details(payload:Events, db: Session = Depends(get_db)):
         event_name = payload.event_name,
         event_description = payload.event_description,
         event_date = payload.event_date,
+        event_venue = payload.event_venue,
         total_seats = payload.total_seats
     )
 
@@ -48,3 +49,5 @@ async def get_specific_event_detail(event_id: str, db: Session = Depends(get_db)
         raise HTTPException(detail="This event does not exists", status_code = 404)
     
     return existing_event
+
+

@@ -48,7 +48,7 @@ async def get_user(payload: UserSignup, db: Session = Depends(get_db)) -> dict:
     db.commit()
     db.refresh(new_user)
 
-    return {"system_message": f"New User Created! email: {payload.email}"}
+    return {"system_message": f"New User Created! email: {payload.email}", "user_id": new_user.id}
                                                                                 
 
 @auth.post('/login')
@@ -68,7 +68,8 @@ async def login_user(db: Session = Depends(get_db),  form_data: OAuth2PasswordRe
     return {
         "system_mssg":"User Logined Succesfully",
         "access_token":access_token,
-        "token_type":"bearer"
+        "token_type":"bearer",
+        "user_id": existing_user.id
     }
 
 @auth.post('/logout')
