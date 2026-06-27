@@ -7,6 +7,7 @@ from schema.user import UserLogin, UserSignup
 from model.user import UserTable
 from datetime import timedelta, timezone,datetime
 import os
+from uuid import uuid4
 from fastapi.security import OAuth2PasswordRequestForm
 
 
@@ -37,6 +38,7 @@ async def get_user(payload: UserSignup, db: Session = Depends(get_db)) -> dict:
     hashed_password = pwd_context.hash(payload.password)
     
     new_user = UserTable(
+        id = str(uuid4()),
         email = payload.email,
         name = payload.name,
         password = hashed_password

@@ -2,7 +2,6 @@ from pydantic import BaseModel, Field, model_validator
 from datetime import datetime, timezone
 
 class Events(BaseModel):
-    event_id: int
     event_name: str = Field(max_length=1000)
     event_description : str = Field(min_length=2, max_length=10000)
     event_date : datetime

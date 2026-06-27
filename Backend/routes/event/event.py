@@ -4,6 +4,7 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 from model.events import EventsTable
 from schema.events import Events
+from uuid import uuid4
 
 
 event = APIRouter(tags=['events'], prefix="/event")
@@ -12,6 +13,7 @@ event = APIRouter(tags=['events'], prefix="/event")
 async def post_event_details(payload:Events, db: Session = Depends(get_db)):
 
     new_event = EventsTable(
+        event_id = str(uuid4()),
         available_seats = payload.available_seats,
         event_name = payload.event_name,
         event_description = payload.event_description,
