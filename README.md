@@ -9,7 +9,8 @@ The goal of the project is to give a realistic, end‑to‑end example of:
 - Simple but practical booking logic that feels like a real product
 
 ---
-
+![Home page](image-1.png)
+![Events View](image.png)
 ## Tech Stack
 
 - **Frontend**
