@@ -9,7 +9,7 @@ from uuid import uuid4
 
 event = APIRouter(tags=['events'], prefix="/event")
 
-@event.post('/')
+@event.post('/create')
 async def post_event_details(payload:Events, db: Session = Depends(get_db)):
 
     new_event = EventsTable(

@@ -3,6 +3,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Events from "./pages/Events"
+import EventCard from "./components/EventCard"
+
 
 const App = () =>{
   return (
