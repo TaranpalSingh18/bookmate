@@ -1,1 +1,38 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+/* Hero events carousel */
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem 0 0.75rem;
+}
+
+.hero-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: hero-carousel 45s linear infinite;
+}
+
+.hero-carousel-card {
+  flex: 0 0 320px;
+}
+
+@media (min-width: 1024px) {
+  .hero-carousel-card {
+    flex-basis: 360px;
+  }
+}
+
+.hero-carousel:hover .hero-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes hero-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

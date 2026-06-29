@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { get_all_events } from "../api/event";
+import Hero from "./Hero";
 
 const Home = () => {
   // Simulating navigate for artifact preview
   const navigate = (path) => console.log("Navigate to:", path);
 
+  // useEffect( () => {
+  //   const fetchEvents = async () => {
+  //     try{
+  //       const res = await get_all_events()
+  //       console.log(res)
+
+  //     }
+  //     catch(error){
+  //       console.log(error)
+  //     }
+  //   }
+  //   fetchEvents()
+  // }, [])
+
+
+
   return (
     <div className="min-h-screen bg-[#0a0c12] px-6 py-16 md:py-24">
       {/* Subtle radial glow behind hero */}
+      
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-red-700/10 blur-[120px]" />
       </div>
@@ -103,11 +122,14 @@ const Home = () => {
               <p className="text-[11px] text-slate-600 leading-relaxed">
                 You'll get a notification the moment you're next — no refreshing, no guessing.
               </p>
+
+
             </div>
           </div>
         </div>
 
       </div>
+      <Hero/>
     </div>
   );
 };
