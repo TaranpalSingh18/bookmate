@@ -1,21 +1,26 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Events from "./pages/Events";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 
-import Login from "./pages/Login"
-import Signup from "./pages/Signup"
-import Events from "./pages/Events"
-import EventCard from "./components/EventCard"
-
-
-const App = () =>{
+const App = () => {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Events/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup/>}/>
-    </Routes>
+      <div className="min-h-screen bg-slate-950 text-white">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </div>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

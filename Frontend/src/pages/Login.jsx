@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { login } from "../api/auth";
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [form, setForm] = useState({
         email: "",
@@ -20,9 +24,20 @@ const Login = () => {
             const res = await login(form);
 
             localStorage.setItem("token", res.data.access_token);
+            if (res.data.user_id) {
+                localStorage.setItem("user_id", res.data.user_id);
+            }
 
             alert("Logged In");
             console.log(res.data);
+
+            // If we came from a protected action, go back there. Otherwise go to events.
+            const redirectTo =
+                location.state?.from?.pathname &&
+                location.state.from.pathname !== "/login"
+                    ? location.state.from.pathname
+                    : "/events";
+            navigate(redirectTo, { replace: true });
 
         } catch (error) {
             console.log(error.response?.data);
@@ -37,7 +52,7 @@ const Login = () => {
                 <div className="hidden md:flex flex-col justify-between bg-gradient-to-br from-red-600/80 via-red-500/70 to-amber-400/70 p-10 text-white">
                     <div>
                         <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-sm">
-                            LineMate
+                            Bookmate
                         </h1>
                         <p className="mt-3 text-sm text-red-50/90 max-w-xs">
                             Smart queue management for events, bookings and more – skip the chaos, keep the line moving.

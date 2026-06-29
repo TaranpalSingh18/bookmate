@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signup } from "../api/auth";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -20,6 +22,8 @@ const Signup = () => {
       const res = await signup(form);
       console.log(res.data);
       alert("Signup Successful");
+      // After signup, go to login so user can log in and book
+      navigate("/login");
     } catch (err) {
       console.log(err);
       alert("Signup Failed");
@@ -33,7 +37,7 @@ const Signup = () => {
         <div className="hidden md:flex flex-col justify-between bg-gradient-to-br from-red-600/80 via-red-500/70 to-amber-400/70 p-10 text-white">
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-sm">
-              LineMate
+              Bookmate
             </h1>
             <p className="mt-3 text-sm text-red-50/90 max-w-xs">
               Create your account and start managing queues and bookings with ease.
@@ -71,7 +75,7 @@ const Signup = () => {
               Create your account
             </h2>
             <p className="text-sm text-gray-400 mt-2">
-              Join LineMate and keep all your bookings and queues in one place.
+              Join Bookmate and keep all your bookings and queues in one place.
             </p>
           </div>
 
