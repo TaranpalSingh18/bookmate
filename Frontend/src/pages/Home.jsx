@@ -38,22 +38,22 @@ const Home = () => {
           {/* Eyebrow badge */}
           <span className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-red-300">
             <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
-            Smart queue management
+            Smart ticket booking
           </span>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-[3.25rem] font-bold leading-[1.1] tracking-tight text-white">
             Skip the chaos,
             <br />
-            keep every line{" "}
+            book every{" "}
             <span className="bg-gradient-to-r from-red-500 via-orange-400 to-amber-400 bg-clip-text text-transparent">
-              in control.
+              ticket in seconds.
             </span>
           </h1>
 
           {/* Body */}
           <p className="text-[15px] leading-relaxed text-slate-400 max-w-sm">
-            Bookmate manages event queues, bookings, and live wait times in one place. Attendees always know exactly when it's their turn.
+            Bookmate lets fans discover events and book tickets in just a few taps – no phone calls, no spreadsheets, just instant confirmations.
           </p>
 
           {/* CTA row */}
@@ -86,41 +86,41 @@ const Home = () => {
 
               {/* Card header */}
               <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold text-white tracking-tight">Live queue</p>
+                <p className="text-sm font-semibold text-white tracking-tight">Ticket overview</p>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-[11px] font-medium text-emerald-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Online
+                  On sale
                 </span>
               </div>
 
               {/* Divider */}
               <div className="h-px bg-slate-800" />
 
-              {/* Queue item */}
+              {/* Featured event ticket */}
               <div className="rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-800/40 border border-slate-700/40 px-4 py-4 flex items-center justify-between gap-4">
                 <div className="space-y-0.5 min-w-0">
                   <p className="text-sm font-semibold text-white truncate">Music Fest 2024</p>
-                  <p className="text-[11px] text-slate-500 truncate">Central Arena · 120 people ahead</p>
+                  <p className="text-[11px] text-slate-500 truncate">Central Arena · 120 seats left</p>
                 </div>
                 <span className="shrink-0 rounded-full bg-amber-500/15 border border-amber-400/20 px-3 py-1 text-[11px] font-semibold text-amber-300 whitespace-nowrap">
-                  ~5 min
+                  From ₹799
                 </span>
               </div>
 
-              {/* Secondary queue item (faded) */}
+              {/* Secondary event (faded) */}
               <div className="rounded-2xl bg-slate-800/30 border border-slate-800/60 px-4 py-3.5 flex items-center justify-between gap-4 opacity-50">
                 <div className="space-y-0.5 min-w-0">
                   <p className="text-sm font-semibold text-white truncate">Jazz Night — VIP</p>
-                  <p className="text-[11px] text-slate-500 truncate">Rooftop Stage · 34 people ahead</p>
+                  <p className="text-[11px] text-slate-500 truncate">Rooftop Stage · 34 seats left</p>
                 </div>
                 <span className="shrink-0 rounded-full bg-slate-700/60 px-3 py-1 text-[11px] font-medium text-slate-400 whitespace-nowrap">
-                  ~12 min
+                  Today · 8:00 PM
                 </span>
               </div>
 
               {/* Footer hint */}
               <p className="text-[11px] text-slate-600 leading-relaxed">
-                You'll get a notification the moment you're next — no refreshing, no guessing.
+                Get secure, mobile tickets in seconds and keep every event booking in one place.
               </p>
 
 

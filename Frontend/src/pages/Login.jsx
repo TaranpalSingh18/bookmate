@@ -46,8 +46,13 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-4">
-            <div className="w-full max-w-4xl rounded-3xl bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.8)] grid md:grid-cols-2 overflow-hidden">
+        <div className="min-h-screen bg-[#0a0c12] px-6 py-16 flex items-center justify-center relative overflow-hidden">
+            {/* Subtle radial glow to match home hero */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-red-700/10 blur-[120px]" />
+            </div>
+
+            <div className="relative w-full max-w-4xl rounded-3xl bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.8)] grid md:grid-cols-2 overflow-hidden">
                 {/* Brand / side panel */}
                 <div className="hidden md:flex flex-col justify-between bg-gradient-to-br from-red-600/80 via-red-500/70 to-amber-400/70 p-10 text-white">
                     <div>
@@ -55,17 +60,17 @@ const Login = () => {
                             Bookmate
                         </h1>
                         <p className="mt-3 text-sm text-red-50/90 max-w-xs">
-                            Smart queue management for events, bookings and more – skip the chaos, keep the line moving.
+                            Smart ticket booking for concerts, shows, and more – skip the chaos and secure seats in seconds.
                         </p>
                     </div>
                     <div className="mt-10 space-y-3 text-sm text-red-50/90">
                         <p className="flex items-center gap-2">
                             <span className="h-1 w-1 rounded-full bg-red-50" />
-                            Real‑time line tracking
+                            Instant confirmation on every booking
                         </p>
                         <p className="flex items-center gap-2">
                             <span className="h-1 w-1 rounded-full bg-red-50" />
-                            Smart notifications for your turn
+                            Smart reminders before your events
                         </p>
                         <p className="flex items-center gap-2">
                             <span className="h-1 w-1 rounded-full bg-red-50" />
@@ -86,11 +91,11 @@ const Login = () => {
                     </div>
 
                     <div className="text-center md:text-left mb-8">
-                        <h2 className="text-3xl font-semibold text-white tracking-tight">
+                        <h2 className="text-3xl md:text-[2rem] font-semibold text-white tracking-tight">
                             Welcome back
                         </h2>
-                        <p className="text-sm text-gray-400 mt-2">
-                            Login to access your bookings, events and live queue updates.
+                        <p className="text-sm text-slate-400 mt-2">
+                            Log in to access your tickets, bookings, and upcoming events.
                         </p>
                     </div>
 
@@ -98,7 +103,7 @@ const Login = () => {
                         <div className="space-y-1.5">
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium text-gray-300"
+                                className="block text-sm font-medium text-slate-300"
                             >
                                 Email
                             </label>
@@ -108,7 +113,7 @@ const Login = () => {
                                 name="email"
                                 placeholder="you@example.com"
                                 onChange={handleChange}
-                                className="w-full rounded-xl bg-slate-900 border border-slate-700/80 px-4 py-3 text-white placeholder-gray-500 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/80 transition"
+                                className="w-full rounded-xl bg-slate-900 border border-slate-700/80 px-4 py-3 text-white placeholder-slate-500 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/80 transition"
                             />
                         </div>
 
@@ -116,13 +121,13 @@ const Login = () => {
                             <div className="flex items-center justify-between">
                                 <label
                                     htmlFor="password"
-                                    className="block text-sm font-medium text-gray-300"
+                                    className="block text-sm font-medium text-slate-300"
                                 >
                                     Password
                                 </label>
                                 <button
                                     type="button"
-                                    className="text-xs text-gray-400 hover:text-red-400 transition"
+                                    className="text-xs text-slate-400 hover:text-red-400 transition"
                                 >
                                     Forgot password?
                                 </button>
@@ -133,19 +138,19 @@ const Login = () => {
                                 name="password"
                                 placeholder="••••••••"
                                 onChange={handleChange}
-                                className="w-full rounded-xl bg-slate-900 border border-slate-700/80 px-4 py-3 text-white placeholder-gray-500 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/80 transition"
+                                className="w-full rounded-xl bg-slate-900 border border-slate-700/80 px-4 py-3 text-white placeholder-slate-500 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/80 transition"
                             />
                         </div>
 
                         <button
                             onClick={handleSubmit}
-                            className="w-full rounded-xl bg-red-600 py-3 text-sm md:text-base text-white font-semibold shadow-lg shadow-red-600/40 hover:bg-red-500 hover:shadow-red-500/40 transition duration-200"
+                            className="w-full rounded-full bg-red-600 py-3 text-sm md:text-base font-semibold text-white shadow-lg shadow-red-700/40 hover:bg-red-500 hover:shadow-red-500/40 active:scale-[0.97] transition-all duration-150"
                         >
                             Login
                         </button>
                     </div>
 
-                    <p className="mt-6 text-center text-xs md:text-sm text-gray-400">
+                    <p className="mt-6 text-center text-xs md:text-sm text-slate-400">
                         Don't have an account?{" "}
                         <a
                             href="/signup"

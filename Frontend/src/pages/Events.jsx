@@ -100,7 +100,7 @@ const Events = () => {
                             Upcoming events
                         </h1>
                         <p className="text-[15px] text-slate-400 max-w-md leading-relaxed">
-                            Browse live and upcoming events. Pick one and book your spot in the queue.
+                            Browse live and upcoming events. Pick one and book your tickets in a few taps.
                         </p>
                     </div>
 

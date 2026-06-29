@@ -130,7 +130,7 @@ const Profile = () => {
           <div className="rounded-2xl border border-slate-800 bg-white/[0.02] px-6 py-14 text-center space-y-3">
             <p className="text-2xl">🎟</p>
             <p className="text-sm font-medium text-slate-400">No bookings yet</p>
-            <p className="text-xs text-slate-600">Head to Events to grab your first spot in line.</p>
+            <p className="text-xs text-slate-600">Head to Events to book your first ticket.</p>
             <button
               onClick={() => navigate("/events")}
               className="mt-2 inline-flex rounded-full bg-red-600 px-5 py-2 text-xs font-semibold text-white hover:bg-red-500 transition"
