@@ -17,7 +17,7 @@ async def make_booking(payload: BookingRequest, db: Session = Depends(get_db)):
     if not existing_user:
         raise HTTPException(detail="The user does not exists. Please create one", status_code=404)
     
-    existing_event =  db.query(EventsTable).filter(EventsTable.event_id == payload.event_id).first()
+    existing_event =  db.query(EventsTable).with_for_update().filter(EventsTable.event_id == payload.event_id).first()
 
     if not existing_event:
         raise HTTPException(detail="The Event does not exists", status_code=404)
@@ -54,7 +54,7 @@ async def cancel_booking(booking_id: str, db: Session = Depends(get_db)):
     if not existing_booking.confirm_booking:
         raise HTTPException(detail="This booking is already cancelled", status_code=400)
 
-    existing_event = db.query(EventsTable).filter(EventsTable.event_id == existing_booking.event_id).first()
+    existing_event = db.query(EventsTable).with_for_update().filter(EventsTable.event_id == existing_booking.event_id).first()
     if existing_event:
         existing_event.available_seats += existing_booking.seats_required
 

@@ -29,6 +29,7 @@ const Profile = () => {
           get_user_bookings(userId),
           get_all_events(),
         ]);
+        // isse hoga ki dono apis ek saath parallely chalenge --> bookinhRes mei get_user_bookings ka result store hoga and eventsRes mei get_all_events ka 
         setBookings(bookingsRes.data || []);
         setEvents(eventsRes.data || []);
       } catch (err) {
@@ -41,6 +42,9 @@ const Profile = () => {
 
     fetchData();
   }, [navigate]);
+  // this [navigate] means ki jab bhi mai navigate krunga toh useEffect chalega, humne usually [] dekha hai, iska matlab hai ki useffect sirf ek baar chalega jab component render (mount) hoga
+// this array is called Dependency array
+
 
   const findEventForBooking = (booking) =>
     events.find((event) => event.event_id === booking.event_id);

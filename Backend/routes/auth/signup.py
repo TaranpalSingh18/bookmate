@@ -73,9 +73,10 @@ async def login_user(db: Session = Depends(get_db),  form_data: OAuth2PasswordRe
     }
 
 @auth.post('/logout')
-async def user_logout():
+async def user_logout(db: Session =  Depends(get_db)):
     """ This is the logout route"""
     return {"system_message":"Profile has been logged out. Please delete the access token from the client"}
+
 
 
     

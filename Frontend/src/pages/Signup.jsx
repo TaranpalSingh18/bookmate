@@ -23,7 +23,7 @@ const Signup = () => {
       console.log(res.data);
       alert("Signup Successful");
       // After signup, go to login so user can log in and book
-      navigate("/login");
+      navigate("/event");
     } catch (err) {
       console.log(err);
       alert("Signup Failed");
