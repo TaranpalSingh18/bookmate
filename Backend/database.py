@@ -7,7 +7,8 @@ load_dotenv()
 
 db_url = os.getenv("DB_URL")
 
-# engine = create_engine(db_url) ## connects python to postgres
+# engine = create_engine(db_url) 
+# connects python to postgres
 
 engine = create_engine(
     db_url,
