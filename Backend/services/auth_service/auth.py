@@ -3,9 +3,9 @@ from datetime  import timedelta, datetime, timezone
 import os
 from jose import jwt
 from uuid import uuid4
-from ...schema.user  import UserSignup
-from ...model.user import UserTable
-from ...database import get_db
+from schema.user  import UserSignup
+from model.user import UserTable
+from database import get_db
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
@@ -58,7 +58,8 @@ class SignupService():
 
 class LoginService(AccessTokenService):
      def __init__(self):
-         super.__init__()
+
+        super().__init__()
      
      def  login_user(self, db: Session ,form_data: OAuth2PasswordRequestForm)->dict:
 

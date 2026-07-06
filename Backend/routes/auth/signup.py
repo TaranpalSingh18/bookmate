@@ -8,7 +8,7 @@ import os
 from datetime import datetime, timedelta
 from uuid import uuid4
 from fastapi.security import OAuth2PasswordRequestForm
-from ...services.auth_service.auth import AccessTokenService, SignupService, LoginService
+from services.auth_service.auth import SignupService, LoginService
 
 
 auth = APIRouter(tags=["auth"], prefix="/auth")
